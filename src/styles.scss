@@ -1,1 +1,344 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box
+}
+
+:root {
+    font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+    color-scheme: light;
+    --bg: #f6f7f8;
+    --card: #fff;
+    --text: #17212b;
+    --muted: #6b7280;
+    --border: #e3e7ea;
+    --accent: #256f62;
+    --red: #c34452;
+    --green: #147d56
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101821;
+    --card: #19232e;
+    --text: #eaf1f5;
+    --muted: #a2aebc;
+    --border: #34414e;
+    --accent: #4eb99e;
+    --red: #ff8994;
+    --green: #6bdbac
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text)
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none
+}
+
+.topbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px max(16px, calc((100vw - 1060px)/2));
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 1.2rem
+}
+
+.topbar nav {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    flex-wrap: wrap
+}
+
+.top-actions {
+    display: flex;
+    gap: 8px
+}
+
+main {
+    max-width: 1080px;
+    padding: 28px 16px 70px;
+    margin: auto
+}
+
+h1 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 0 0 8px
+}
+
+h2 {
+    font-size: 1.15rem;
+    margin: 0 0 15px
+}
+
+p {
+    color: var(--muted)
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 20px
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px
+}
+
+.cards .panel {
+    margin: 0
+}
+
+.cards span {
+    display: block;
+    color: var(--muted);
+    font-size: .9rem
+}
+
+.cards strong {
+    font-size: 1.65rem;
+    display: block;
+    margin-top: 12px
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border)
+}
+
+.item:last-child {
+    border: 0
+}
+
+.item small {
+    display: block;
+    color: var(--muted);
+    margin-top: 4px
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    flex-wrap: wrap
+}
+
+.form-row label {
+    flex: 1 1 155px
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--muted);
+    font-size: .88rem
+}
+
+input,
+select {
+    min-height: 43px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 9px;
+    padding: 9px 10px;
+    width: 100%;
+    font: inherit
+}
+
+button,
+.button {
+    border: 0;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    min-height: 42px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font: inherit;
+    white-space: nowrap
+}
+
+button:disabled {
+    opacity: .5
+}
+
+.subtle {
+    background: transparent;
+    color: var(--text);
+    padding: 6px 9px
+}
+
+.positive {
+    color: var(--green)
+}
+
+.negative,
+.error {
+    color: var(--red)
+}
+
+.login {
+    max-width: 420px;
+    margin: 9vh auto
+}
+
+@media(max-width:600px) {
+    .topbar nav {
+        order: 3;
+        overflow: auto;
+        flex-wrap: nowrap;
+        width: 100%;
+        font-size: .85rem
+    }
+
+    .topbar {
+        gap: 10px
+    }
+
+    .top-actions {
+        margin-left: auto
+    }
+
+    .panel {
+        padding: 16px
+    }
+
+    .item {
+        font-size: .92rem
+    }
+}
+
+
+
+/* FINANCES MOBILE V1 — Estils globals no invasius */
+html {
+    min-width: 0;
+    scroll-padding-bottom: 110px;
+}
+
+body {
+    min-width: 0;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+summary {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+@media (max-width: 1050px) {
+
+    /* Evita que Safari faci zoom quan es toca un formulari */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    button,
+    .button {
+        min-height: 44px;
+    }
+
+    :where(.panel) {
+        min-width: 0;
+    }
+
+    :where(.form-row) {
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        line-height: 1.15;
+    }
+
+    .panel {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .item {
+        min-width: 0;
+    }
+
+    .item> :first-child {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .item> :last-child {
+        flex-shrink: 0;
+    }
+
+    .login {
+        margin: 4vh auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
